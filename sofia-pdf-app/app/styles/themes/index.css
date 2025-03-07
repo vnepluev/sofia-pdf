@@ -1,0 +1,7 @@
+/**
+ * Индексный файл для импорта всех тем
+ */
+
+@import './variables.css';
+@import './light.css';
+@import './dark.css';

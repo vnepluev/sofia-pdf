@@ -1,0 +1,9 @@
+.nuxt
+node_modules
+dist
+.output
+.github
+*.md
+*.json
+*.yaml
+*.yml

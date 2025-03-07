@@ -1,0 +1,25 @@
+{
+  "$schema": "https://shadcn-vue.com/schema.json",
+  "style": "new-york",
+  "typescript": true,
+  "tailwind": {
+    "config": "tailwind.config.js",
+    "css": "sofia-pdf-app/app/styles/tailwind.css",
+    "baseColor": "neutral",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "aliases": {
+    "components": "@/entities",
+    "composables": "@/shared/lib/composables",
+    "utils": "@/shared/lib/utils",
+    "ui": "@/shared/ui",
+    "lib": "@/shared/lib",
+    "features": "@/features",
+    "entities": "@/entities",
+    "widgets": "@/widgets",
+    "pages": "@/pages",
+    "app": "@/app"
+  },
+  "iconLibrary": "lucide"
+}
