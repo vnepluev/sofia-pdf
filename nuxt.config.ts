@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   srcDir: 'sofia-pdf-app',
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', 'shadcn-nuxt'],
+  modules: ['@nuxtjs/i18n', '@nuxtjs/tailwindcss', 'shadcn-nuxt'],
   css: ['~/app/styles/tailwind.css'],
   postcss: {
     plugins: {
@@ -16,14 +16,19 @@ export default defineNuxtConfig({
     },
   },
   shadcn: {
-    /**
-     * Prefix for all the imported component
-     */
     prefix: '',
-    /**
-     * Directory that the component lives in.
-     * @default "./components/ui"
-     */
     componentDir: './sofia-pdf-app/shared/ui',
+  },
+  i18n: {
+    vueI18n: '../sofia-pdf-app/app/i18n/i18n.config.ts',
+    lazy: true,
+    defaultLocale: 'ru',
+    strategy: 'prefix',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root',
+    },
+    skipSettingLocaleOnNavigate: false,
   },
 })
