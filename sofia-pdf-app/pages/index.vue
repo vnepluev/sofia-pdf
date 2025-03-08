@@ -1,20 +1,38 @@
 <script setup lang="ts">
-  import { ThemeSwitcher } from '@/features/theme-switcher'
-  const { setLocale } = useI18n()
+  /**
+   * 404 page
+   */
+
+  const { t } = useI18n()
+
+  definePageMeta({
+    layout: 'blank-layout',
+  })
+
+  useSeoMeta({
+    title: t('pages.404.title'),
+    ogTitle: t('pages.404.title'),
+    description: t('pages.404.description'),
+    ogDescription: t('pages.404.description'),
+  })
+
+  const { getImage } = useImage()
+
+  const bgImage = getImage('/assets/img/404.jpeg', {
+    width: 1080,
+    quality: 80,
+    format: 'webp',
+  })
 </script>
 
 <template>
-  <div class="min-h-screen bg-background text-foreground transition-colors duration-300">
-    <header class="container mx-auto p-4 flex justify-between items-center">
-      <h1 class="text-xl font-bold text-primary">Sofia PDF</h1>
-      <ThemeSwitcher />
-    </header>
-    <main class="container mx-auto p-4">
-      <div>
-        <button @click="setLocale('en')" class="pr-4">en</button>
-        <button @click="setLocale('ru')">ru</button>
-        <p>{{ $t('welcome') }}</p>
-      </div>
-    </main>
-  </div>
+  <NuxtImg :src="bgImage.url" />
+  {{ bgImage.url }}
+  <!-- <div class="hero" :style="{ backgroundImage: `url(${bgImage})` }"></div> -->
 </template>
+
+<style lang="postcss" scoped>
+  .hero {
+    @apply w-screen h-screen bg-cover bg-center bg-no-repeat bg-primary-foreground;
+  }
+</style>

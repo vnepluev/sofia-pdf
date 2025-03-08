@@ -3,10 +3,15 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
   },
-  srcDir: 'sofia-pdf-app',
+  srcDir: process.env.SRC_DIR,
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/i18n', '@nuxtjs/tailwindcss', 'shadcn-nuxt'],
+  modules: [
+    '@nuxtjs/i18n',
+    '@nuxtjs/tailwindcss',
+    'shadcn-nuxt',
+    '@nuxt/image',
+  ],
   css: ['~/app/styles/tailwind.css'],
   postcss: {
     plugins: {
@@ -17,10 +22,10 @@ export default defineNuxtConfig({
   },
   shadcn: {
     prefix: '',
-    componentDir: './sofia-pdf-app/shared/ui',
+    componentDir: `./${process.env.SRC_DIR}/shared/ui`,
   },
   i18n: {
-    vueI18n: '../sofia-pdf-app/app/i18n/i18n.config.ts',
+    vueI18n: `../${process.env.SRC_DIR}/app/i18n/i18n.config.ts`,
     lazy: true,
     defaultLocale: 'ru',
     strategy: 'prefix',
@@ -30,5 +35,14 @@ export default defineNuxtConfig({
       redirectOn: 'root',
     },
     skipSettingLocaleOnNavigate: false,
+  },
+  runtimeConfig: {
+    // Серверные переменные
+    // dbConnection: process.env.DB_CONNECTION,
+
+    // Клиентские переменные
+    public: {
+      environment: process.env.NODE_ENV,
+    },
   },
 })
