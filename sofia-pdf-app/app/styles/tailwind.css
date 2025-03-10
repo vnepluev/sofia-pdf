@@ -6,11 +6,11 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    font-size: 62.5%; /* 10px = 1rem (10px / 16px * 100%) */
-  }
   * {
     @apply border-border;
+  }
+  html {
+    font-size: var(--font-size-base);
   }
   body {
     @apply bg-background text-foreground;
