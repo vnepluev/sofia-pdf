@@ -9,6 +9,9 @@
   * {
     @apply border-border;
   }
+  html {
+    font-size: var(--font-size-base);
+  }
   body {
     @apply bg-background text-foreground;
   }

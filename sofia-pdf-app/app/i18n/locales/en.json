@@ -1,0 +1,9 @@
+{
+  "welcome": "Welcome",
+  "pages": {
+    "404": {
+      "title": "Oops, page not found",
+      "description": "You have found the secret page"
+    }
+  }
+}

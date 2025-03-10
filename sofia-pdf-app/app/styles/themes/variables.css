@@ -3,9 +3,12 @@
  */
 
 :root {
+  /* Резиновый размер шрифта с использованием clamp() */
+  --font-size-base: clamp(12px, 0.5vw + 10px, 18px);
+
   /* Радиус скругления */
   --radius: 0.5rem;
-  
+
   /* Анимации и переходы */
   --transition-standard: 0.3s ease-in-out;
 }

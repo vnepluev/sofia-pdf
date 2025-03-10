@@ -13,6 +13,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxtjs/i18n": "^9.3.0",
     "@nuxtjs/tailwindcss": "^6.13.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -25,6 +26,7 @@
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
+    "@nuxt/image": "^1.9.0",
     "@typescript-eslint/eslint-plugin": "^8.26.0",
     "@typescript-eslint/parser": "^8.26.0",
     "autoprefixer": "^10.4.20",
