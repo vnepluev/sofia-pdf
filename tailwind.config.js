@@ -3,6 +3,21 @@ export default {
   darkMode: ['class'],
   content: ['./sofia-pdf-app/**/*.{js,ts,jsx,tsx,vue}', './components/**/*.{js,ts,jsx,tsx,vue}'],
   theme: {
+    fontSize: {
+      xs: '1.0rem',     // 10px
+      sm: '1.2rem',     // 12px
+      base: '1.4rem',   // 14px
+      lg: '1.6rem',     // 16px
+      xl: '1.8rem',     // 18px
+      '2xl': '2.0rem',  // 20px
+      '3xl': '2.4rem',  // 24px
+      '4xl': '3.0rem',  // 30px
+      '5xl': '3.6rem',  // 36px
+      '6xl': '4.0rem',  // 40px
+      '7xl': '4.8rem',  // 48px
+      '8xl': '6.0rem',  // 60px
+      '9xl': '8.0rem',  // 80px
+    },
     extend: {
       borderRadius: {
         lg: 'var(--radius)',
