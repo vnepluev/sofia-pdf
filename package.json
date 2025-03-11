@@ -28,7 +28,6 @@
   },
   "devDependencies": {
     "@nuxt/image": "^1.9.0",
-    "@types/bun": "^1.2.4",
     "@typescript-eslint/eslint-plugin": "^8.26.1",
     "@typescript-eslint/parser": "^8.26.1",
     "autoprefixer": "^10.4.21",

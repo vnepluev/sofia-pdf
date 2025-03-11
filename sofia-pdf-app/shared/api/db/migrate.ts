@@ -2,29 +2,38 @@
  * Утилита для выполнения миграций базы данных
  */
 
-import 'dotenv/config';
-import { migrate } from 'drizzle-orm/bun-sqlite/migrator';
-import { drizzle } from 'drizzle-orm/bun-sqlite';
-import { Database } from 'bun:sqlite';
-import * as schema from './schema';
+import 'dotenv/config'
+import { migrate } from 'drizzle-orm/bun-sqlite/migrator'
+import { drizzle } from 'drizzle-orm/bun-sql'
+import { Database } from 'bun:sqlite'
+import { join, dirname } from 'path'
+import { fileURLToPath } from 'url'
 
-// Функция для выполнения миграций
-async function runMigrations() {
-  // Инициализация базы данных
-  const sqlite = new Database(process.env.DB_FILE_NAME!);
-  const db = drizzle(sqlite, { schema });
+/**
+ * Функция для выполнения миграций базы данных
+ */
+function runMigrations() {
+  try {
+    // Инициализация базы данных
+    const sqlite = new Database(process.env.DB_FILE_NAME!)
+    const db = drizzle(process.env.DB_FILE_NAME!)
 
-  // Выполнение миграций
-  console.log('Запуск миграций...');
-  await migrate(db, { migrationsFolder: './sofia-pdf-app/shared/api/db/migrations' });
-  console.log('Миграции успешно выполнены');
+    // Получение абсолютного пути к директории миграций
+    const __dirname = dirname(fileURLToPath(import.meta.url))
+    const migrationsPath = join(__dirname, 'migrations')
 
-  // Закрытие соединения с базой данных
-  sqlite.close();
+    // Выполнение миграций
+    console.log('Запуск миграций...')
+    migrate(db, { migrationsFolder: migrationsPath })
+    console.log('Миграции успешно выполнены')
+
+    // Закрытие соединения с базой данных
+    sqlite.close()
+  } catch (error) {
+    console.error('Ошибка при выполнении миграций:', error)
+    process.exit(1)
+  }
 }
 
 // Запуск миграций
-runMigrations().catch((error) => {
-  console.error('Ошибка при выполнении миграций:', error);
-  process.exit(1);
-});
+runMigrations()
