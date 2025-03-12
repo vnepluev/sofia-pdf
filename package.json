@@ -10,11 +10,19 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "db:push": "bun drizzle-kit push --config=drizzle.config.ts",
+    "db:generate": "bun drizzle-kit generate --config=drizzle.config.ts",
+    "db:studio": "bun drizzle-kit studio --config=drizzle.config.ts",
+    "db:migrate": "bun drizzle-kit migrate --config=drizzle.config.ts",
+    "db:pull": "bun drizzle-kit pull --config=drizzle.config.ts",
+    "db:check": "bun drizzle-kit check --config=drizzle.config.ts",
+    "db:up": "bun drizzle-kit up --config=drizzle.config.ts"
   },
   "dependencies": {
     "@nuxtjs/i18n": "^9.3.1",
     "@nuxtjs/tailwindcss": "^6.13.2",
+    "better-sqlite3": "^11.8.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "drizzle-orm": "^0.40.0",
