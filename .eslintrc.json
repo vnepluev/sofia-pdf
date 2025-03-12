@@ -22,6 +22,8 @@
     "prettier"
   ],
   "rules": {
+    "function-call-argument-newline": ["error", "always"],
+    "function-paren-newline": ["error", "multiline"],
     "prettier/prettier": "error",
     "no-console": "warn",
     "no-debugger": "warn",
