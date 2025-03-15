@@ -1,4 +1,3 @@
-import ThemeSwitcher from './theme-switcher.vue'
+import ThemeSwitcherFeature from './theme-switcher-feature.vue'
 
-export { ThemeSwitcher }
-export default ThemeSwitcher
+export { ThemeSwitcherFeature }

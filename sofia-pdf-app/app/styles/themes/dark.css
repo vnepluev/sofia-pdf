@@ -3,6 +3,11 @@
  */
 
 .dark {
+  /* Основные цвета background */
+  --bg-color: 200 50% 15%;
+  --bg-light: 0 0% 100%;
+  --fg-color: 0 0% 98%;
+
   /* Основные цвета текста */
   --background: 200 50% 15%;
   --foreground: 0 0% 98%;

@@ -11,4 +11,20 @@
 
   /* Анимации и переходы */
   --transition-standard: 0.3s ease-in-out;
+  
+  /* Цвета текста для разных фонов */
+  --text-color-light: 180 10% 10%;
+  --text-color-dark: 0 0% 98%;
+
+  /* Переменные для кнопок */
+  --button-primary-bg: theme('colors.teal.700');
+  --button-primary-hover-bg: theme('colors.teal.600');
+  --button-primary-text: theme('colors.white');
+  --button-secondary-border: theme('colors.teal.700');
+  --button-secondary-text: theme('colors.teal.700');
+  --button-secondary-hover-text: theme('colors.teal.600');
+  --button-secondary-hover-bg: theme('colors.teal.50');
+  --button-focus-ring: theme('colors.teal.500');
+  --button-animation-scale: 1.05;
+  --button-animation-duration: 300ms;
 }

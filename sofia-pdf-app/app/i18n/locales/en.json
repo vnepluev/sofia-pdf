@@ -1,9 +1,32 @@
 {
   "welcome": "Welcome",
+  "app": {
+    "name": "Certificate Gen"
+  },
   "pages": {
     "404": {
       "title": "Oops, page not found",
       "description": "You have found the secret page"
+    },
+    "main": {
+      "seoTitle": "Gift certificates generator",
+      "seoDescription": "Walks on water transport in Kazan",
+      "title": "Certificate Generator",
+      "subtitle": "Create or edit certificates for exciting travels",
+      "createNew": "Create New",
+      "edit": "Edit",
+      "legalInfo": "Legal information",
+      "boatImageAlt": "Boat image"
+    }
+  },
+  "components": {
+    "langSwitcher": {
+      "en": "Switch to English",
+      "ru": "Switch to Russian"
+    },
+    "themeSwitcher": {
+      "toLight": "Switch to light theme",
+      "toDark": "Switch to dark theme"
     }
   }
 }

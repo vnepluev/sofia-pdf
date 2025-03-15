@@ -53,7 +53,10 @@ export default {
       },
       colors: {
         background: 'hsl(var(--bg-color))',
+        'background-light': 'hsl(var(--bg-light))',
         foreground: 'hsl(var(--fg-color))',
+        'on-light': 'hsl(var(--text-color-light))',
+        'on-dark': 'hsl(var(--text-color-dark))',
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
