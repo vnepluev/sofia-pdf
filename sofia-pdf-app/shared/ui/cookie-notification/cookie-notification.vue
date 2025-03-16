@@ -4,8 +4,12 @@
  */
 import { ref, onMounted } from 'vue'
 import { Cookie } from 'lucide-vue-next'
-
 import { VButton } from '~/shared/ui/v-button'
+import {
+  LocalStorageKeys,
+  getFromStorage,
+  saveToStorage,
+} from '~/shared/lib/local-storage-lib'
 
 const { t } = useI18n()
 const isVisible = ref(false)
@@ -13,27 +17,32 @@ const isVisible = ref(false)
 // Функция для закрытия уведомления и сохранения настроек
 const acceptCookies = () => {
   isVisible.value = false
-  localStorage.setItem('cookieAccepted', 'true')
+  saveToStorage(LocalStorageKeys.COOKIE_ACCEPTED, 'true')
 }
 
 // Проверяем, было ли уже принято соглашение
 onMounted(() => {
-  const cookieAccepted = localStorage.getItem('cookieAccepted')
+  const cookieAccepted = getFromStorage(
+    LocalStorageKeys.COOKIE_ACCEPTED,
+  )
   isVisible.value = cookieAccepted !== 'true'
 })
 </script>
 
 <template>
   <Transition name="slide-up">
-    <div v-if="isVisible" class="cookie-notification">
+    <div
+      v-if="isVisible"
+      class="cookie-notification"
+    >
       <div class="cookie-icon">
         <Cookie />
       </div>
       <div class="cookie-content">
         {{ t('components.cookieNotification.messageBefore') }}
         <span class="cookie-link-wrapper">
-          <NuxtLink 
-            :to="t('components.cookieNotification.cookieUrl')" 
+          <NuxtLink
+            :to="t('components.cookieNotification.cookieUrl')"
             class="cookie-link"
           >
             {{ t('components.cookieNotification.cookieLink') }}
@@ -41,8 +50,8 @@ onMounted(() => {
         </span>
         {{ t('components.cookieNotification.messageAfter') }}
       </div>
-      <VButton 
-        variant="primary" 
+      <VButton
+        variant="primary"
         @click="acceptCookies"
       >
         {{ t('components.cookieNotification.accept') }}
@@ -63,8 +72,6 @@ onMounted(() => {
 .cookie-content {
   @apply flex-grow text-foreground;
 }
-
-
 
 .slide-up-enter-active,
 .slide-up-leave-active {

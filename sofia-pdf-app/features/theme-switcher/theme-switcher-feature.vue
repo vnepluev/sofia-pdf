@@ -4,7 +4,7 @@
  */
 import { ref, onMounted } from 'vue'
 import { Sun, Moon } from 'lucide-vue-next'
-import { LocalStorageKeys, getFromStorage, saveToStorage } from '~/shared/lib/local-storage'
+import { LocalStorageKeys, getFromStorage, saveToStorage } from '~/shared/lib/local-storage-lib'
 
 const { t } = useI18n()
 const isDark = ref(false)

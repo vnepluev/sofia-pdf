@@ -2,7 +2,7 @@
 /**
  ** Переключения языка (русский/английский)
  */
-import { LocalStorageKeys, getFromStorage, saveToStorage } from '~/shared/lib/local-storage'
+import { LocalStorageKeys, getFromStorage, saveToStorage } from '~/shared/lib/local-storage-lib'
 
 const { t, locale } = useI18n()
 

@@ -5,7 +5,7 @@
 import { ref, onMounted } from 'vue'
 import { Cookie } from 'lucide-vue-next'
 import { VButton } from '~/shared/ui/v-button'
-import { LocalStorageKeys, getFromStorage, saveToStorage } from '~/shared/lib/local-storage'
+import { LocalStorageKeys, getFromStorage, saveToStorage } from '~/shared/lib/local-storage-lib'
 
 const { t } = useI18n()
 const isVisible = ref(false)
