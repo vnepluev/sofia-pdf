@@ -4,6 +4,7 @@
  */
 import { ref, onMounted } from 'vue'
 import { Sun, Moon } from 'lucide-vue-next'
+import { LocalStorageKeys, getFromStorage, saveToStorage } from '~/shared/lib/local-storage'
 
 const { t } = useI18n()
 const isDark = ref(false)
@@ -18,17 +19,17 @@ const toggleTheme = () => {
 const updateTheme = () => {
   if (isDark.value) {
     document.documentElement.classList.add('dark')
-    localStorage.setItem('theme', 'dark')
+    saveToStorage(LocalStorageKeys.THEME, 'dark')
   } else {
     document.documentElement.classList.remove('dark')
-    localStorage.setItem('theme', 'light')
+    saveToStorage(LocalStorageKeys.THEME, 'light')
   }
 }
 
 // Инициализация темы при загрузке компонента
 onMounted(() => {
   // Проверяем сохраненную тему в localStorage
-  const savedTheme = localStorage.getItem('theme')
+  const savedTheme = getFromStorage(LocalStorageKeys.THEME)
 
   // Проверяем системные настройки, если нет сохраненной темы
   const prefersDark =
@@ -42,7 +43,7 @@ onMounted(() => {
 
   // Слушаем изменения системных настроек
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-    if (!localStorage.getItem('theme')) {
+    if (!getFromStorage(LocalStorageKeys.THEME)) {
       isDark.value = e.matches
       updateTheme()
     }
@@ -63,10 +64,10 @@ onMounted(() => {
 
 <style scoped>
 .theme-button {
-  @apply flex items-center justify-center px-3 h-full rounded-md hover:bg-accent transition-colors min-w-[64px];
+  @apply flex items-center justify-center px-2 sm:px-3 h-full rounded-md hover:bg-accent transition-colors min-w-[48px] sm:min-w-[64px];
 }
 
 .icon {
-  @apply w-6 h-6;
+  @apply w-5 h-5 sm:w-6 sm:h-6;
 }
 </style>

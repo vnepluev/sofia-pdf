@@ -27,6 +27,13 @@
     "themeSwitcher": {
       "toLight": "Switch to light theme",
       "toDark": "Switch to dark theme"
+    },
+    "cookieNotification": {
+      "messageBefore": "This site uses ",
+      "cookieLink": "cookies",
+      "messageAfter": " for service personalization and user convenience. You can disable cookie storage in your browser settings.",
+      "cookieUrl": "/cookie-policy",
+      "accept": "OK"
     }
   }
 }

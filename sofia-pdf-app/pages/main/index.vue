@@ -5,6 +5,7 @@
 import { TitleWithSubtitle } from '~/shared/ui/title-with-subtitle'
 import { ThemeSwitcherFeature } from '~/features/theme-switcher'
 import { LangSwitcherFeature } from '~/features/language-switcher'
+import { CookieNotificationFeature } from '~/features/cookie-notification'
 import { VButton } from '~/shared/ui/v-button'
 import { VLink } from '~/shared/ui/v-link'
 import boatImage from './ui/boat-image.png'
@@ -25,8 +26,10 @@ useSeoMeta({
   <div class="app-container">
     <header class="app-header">
       <div class="header-content">
-        <LangSwitcherFeature />
-        <ThemeSwitcherFeature />
+        <div class="switchers-container">
+          <LangSwitcherFeature />
+          <ThemeSwitcherFeature />
+        </div>
       </div>
     </header>
 
@@ -61,11 +64,14 @@ useSeoMeta({
       
       <!-- Legal information link -->
       <div class="mt-16 text-center">
-        <VLink to="/legal" variant="primary" class="legal-link">
+        <VLink to="/legal" variant="primary" class="legal-link text-sm">
           {{ t('pages.main.legalInfo') }}
         </VLink>
       </div>
     </main>
+    
+    <!-- Cookie notification -->
+    <CookieNotificationFeature />
   </div>
 </template>
 
@@ -79,7 +85,11 @@ useSeoMeta({
 }
 
 .header-content {
-  @apply container mx-auto flex justify-end items-stretch gap-4 h-12;
+  @apply container mx-auto flex justify-end items-stretch h-12;
+}
+
+.switchers-container {
+  @apply flex items-center gap-1 sm:gap-2;
 }
 
 .main-content {

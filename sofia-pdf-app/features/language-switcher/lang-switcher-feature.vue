@@ -2,6 +2,8 @@
 /**
  ** Переключения языка (русский/английский)
  */
+import { LocalStorageKeys, getFromStorage, saveToStorage } from '~/shared/lib/local-storage'
+
 const { t, locale } = useI18n()
 
 const availableLocales = (process.env.LOCALES || 'ru,en').split(',')
@@ -12,7 +14,7 @@ const toggleLocale = () => {
   locale.value = availableLocales[nextIndex] || 'en'
 
   // Сохраняем выбранный язык в localStorage
-  localStorage.setItem('locale', locale.value)
+  saveToStorage(LocalStorageKeys.LOCALE, locale.value)
 }
 </script>
 
@@ -34,7 +36,7 @@ const toggleLocale = () => {
 
 <style scoped>
 .lang-button {
-  @apply flex items-center justify-center px-3 py-2 rounded-md hover:bg-accent transition-colors min-w-[64px];
+  @apply flex items-center justify-center px-2 py-1 sm:px-3 sm:py-2 rounded-md hover:bg-accent transition-colors min-w-[48px] sm:min-w-[64px];
 }
 
 .lang-text {

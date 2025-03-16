@@ -27,6 +27,13 @@
     "themeSwitcher": {
       "toLight": "Включить светлую тему",
       "toDark": "Включить темную тему"
+    },
+    "cookieNotification": {
+      "messageBefore": "Данный сайт использует ",
+      "cookieLink": "cookie",
+      "messageAfter": " для персонализации сервисов и удобства пользователей. Вы можете запретить сохранение cookie в настройках своего браузера.",
+      "cookieUrl": "/cookie-policy",
+      "accept": "Хорошо"
     }
   }
 }
