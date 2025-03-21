@@ -34,73 +34,125 @@ useSeoMeta({
     </header>
 
     <main class="main-content">
-      <div class="mb-16">
-        <img
-          :src="boatImage"
-          :alt="t('pages.main.boatImageAlt')"
-          loading="lazy"
-          decoding="async"
-          class="boat-image"
-        />
-      </div>
+      <img
+        class="boat-image"
+        :src="boatImage"
+        :alt="t('pages.main.boatImageAlt')"
+        loading="lazy"
+        decoding="async"
+      />
       <!-- Title and description -->
-      <div class="text-center mb-16">
-        <TitleWithSubtitle
-          :title="t('pages.main.title')"
-          :subtitle="t('pages.main.subtitle')"
-        />
+      <div class="title-container">
+        <TitleWithSubtitle>
+          <template #title>{{ t('pages.main.title') }}</template>
+          <template #subtitle>{{
+            t('pages.main.subtitle')
+          }}</template>
+        </TitleWithSubtitle>
       </div>
       <!-- buttons -->
-      <div class="mb-16">
-        <div class="flex gap-4">
-          <VButton variant="primary">
-            {{ t('pages.main.createNew') }}
-          </VButton>
-          <VButton variant="secondary">
-            {{ t('pages.main.edit') }}
-          </VButton>
-        </div>
+      <div class="buttons-container">
+        <VButton variant="primary">
+          {{ t('pages.main.createNew') }}
+        </VButton>
+        <VButton variant="secondary">
+          {{ t('pages.main.edit') }}
+        </VButton>
       </div>
-      
+
       <!-- Legal information link -->
-      <div class="mt-16 text-center">
-        <VLink to="/legal" variant="primary" class="legal-link text-sm">
+      <div class="legal-info-container">
+        <VLink
+          to="/"
+          variant="primary"
+        >
           {{ t('pages.main.legalInfo') }}
         </VLink>
       </div>
     </main>
-    
+
     <!-- Cookie notification -->
     <CookieNotificationFeature />
   </div>
 </template>
 
 <style scoped>
+@reference "@/app/styles/theme.css";
+
 .app-container {
-  @apply min-h-screen bg-background-light text-foreground transition-colors duration-300;
+  min-height: 100vh;
+  min-width: 100%;
+  color: hsl(var(--text-primary));
+  background-color: hsl(var(--background));
+  transition: all var(--transition-standard);
 }
 
 .app-header {
-  @apply bg-card p-4 shadow-sm;
+  width: 96%;
+  padding: 1rem;
+  background-color: transparent;
 }
 
 .header-content {
-  @apply container mx-auto flex justify-end items-stretch h-12;
+  @apply container mx-auto flex justify-end items-stretch;
 }
 
 .switchers-container {
-  @apply flex items-center gap-1 sm:gap-2;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem;
+
+  @media (min-width: var(--screen-sm)) {
+    gap: 0.75rem;
+  }
+}
+
+.switchers-container > :nth-child(1) {
+  margin-right: 1rem;
+}
+
+.title-container {
+  margin-bottom: var(--base-margin-bottom);
 }
 
 .main-content {
-  @apply container mx-auto p-4 flex flex-col items-center justify-center text-on-light;
+  @apply container mx-auto flex flex-col items-center;
+  min-height: 100vh;
+  padding: 1rem;
+  color: hsl(var(--text-primary));
+  position: relative;
+
+  :root.dark & {
+    color: hsl(var(--text-on-dark));
+  }
 }
 
 .boat-image {
-  @apply w-[400px] h-[400px] object-contain;
+  width: 40rem;
+  height: 40rem;
+  object-fit: contain;
+  margin-bottom: var(--base-margin-bottom);
+
+  @media (max-width: 640px) {
+    width: 70rem;
+    height: 70rem;
+  }
 }
 
-.legal-link {
-  @apply text-lg;
+.legal-info-container {
+  color: hsl(var(--link-color));
+  font-size: var(--font-size-sm);
+  position: absolute;
+  bottom: 2rem;
+  margin-top: auto;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: calc(
+    var(--base-margin-bottom) + (var(--line-height-lg) * 1rem)
+  );
 }
 </style>

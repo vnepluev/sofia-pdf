@@ -20,22 +20,22 @@
     "db:up": "bun drizzle-kit up --config=drizzle.config.ts"
   },
   "dependencies": {
+    "@nuxt/ui": "^3.0.0",
     "@nuxtjs/i18n": "^9.3.1",
     "@nuxtjs/tailwindcss": "^6.13.2",
-    "better-sqlite3": "^11.9.0",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
-    "drizzle-orm": "^0.40.0",
-    "lucide-vue-next": "^0.482.0",
+    "@tailwindcss/upgrade": "^4.0.14",
+    "better-sqlite3": "^11.9.1",
+    "drizzle-orm": "^0.40.1",
+    "lucide-vue-next": "^0.483.0",
     "nuxt": "^3.16.0",
     "reka-ui": "^2.1.0",
-    "shadcn-nuxt": "1.0.3",
-    "tailwind-merge": "^3.0.2",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
-    "@nuxt/image": "^1.9.0",
+    "@nuxt/image": "^1.10.0",
+    "@tailwindcss/postcss": "^4.0.14",
+    "@tailwindcss/vite": "^4.0.14",
     "@typescript-eslint/eslint-plugin": "^8.26.1",
     "@typescript-eslint/parser": "^8.26.1",
     "autoprefixer": "^10.4.21",
@@ -48,7 +48,7 @@
     "postcss": "^8.5.3",
     "postcss-import": "^16.1.0",
     "prettier": "^3.5.3",
-    "tailwindcss": "^3.4.1",
+    "tailwindcss": "^4.0.14",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.8.2"
   }

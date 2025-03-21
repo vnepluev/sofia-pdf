@@ -5,7 +5,11 @@
 import { ref, onMounted } from 'vue'
 import { Cookie } from 'lucide-vue-next'
 import { VButton } from '~/shared/ui/v-button'
-import { LocalStorageKeys, getFromStorage, saveToStorage } from '~/shared/lib/local-storage-lib'
+import {
+  LocalStorageKeys,
+  getFromStorage,
+  saveToStorage,
+} from '~/shared/lib/local-storage-lib'
 
 const { t } = useI18n()
 const isVisible = ref(false)
@@ -18,22 +22,27 @@ const acceptCookies = () => {
 
 // Проверяем, было ли уже принято соглашение
 onMounted(() => {
-  const cookieAccepted = getFromStorage(LocalStorageKeys.COOKIE_ACCEPTED)
+  const cookieAccepted = getFromStorage(
+    LocalStorageKeys.COOKIE_ACCEPTED,
+  )
   isVisible.value = cookieAccepted !== 'true'
 })
 </script>
 
 <template>
   <Transition name="slide-up">
-    <div v-if="isVisible" class="cookie-notification">
-      <div class="cookie-icon">
-        <Cookie />
+    <div
+      v-if="isVisible"
+      class="cookie-notification"
+    >
+      <div class="cookie-wrapper">
+        <Cookie class="cookie-icon" />
       </div>
       <div class="cookie-content">
         {{ t('components.cookieNotification.messageBefore') }}
         <span class="cookie-link-wrapper">
-          <NuxtLink 
-            :to="t('components.cookieNotification.cookieUrl')" 
+          <NuxtLink
+            :to="t('components.cookieNotification.cookieUrl')"
             class="cookie-link"
           >
             {{ t('components.cookieNotification.cookieLink') }}
@@ -41,8 +50,9 @@ onMounted(() => {
         </span>
         {{ t('components.cookieNotification.messageAfter') }}
       </div>
-      <VButton 
-        variant="primary" 
+      <VButton
+        class="cookie-button"
+        variant="primary"
         @click="acceptCookies"
       >
         {{ t('components.cookieNotification.accept') }}
@@ -52,35 +62,65 @@ onMounted(() => {
 </template>
 
 <style scoped>
+@reference "@/app/styles/theme.css";
+
 .cookie-notification {
-  @apply fixed bottom-0 left-0 right-0 flex items-center gap-4 p-4 bg-card shadow-lg z-50;
+  display: flex;
+  align-items: center;
+  background-color: hsl(var(--card));
+  box-shadow: var(--shadow-lg);
+  padding: 3rem;
+  gap: 1rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-index-modal);
+}
+
+.cookie-wrapper {
+  flex-shrink: 0;
+  color: hsl(var(--card-text));
+  margin-right: 1rem;
 }
 
 .cookie-icon {
-  @apply text-primary flex-shrink-0;
+  height: 4rem;
+  width: 4rem;
 }
 
 .cookie-content {
-  @apply flex-grow text-foreground;
+  @apply text-[hsl(var(--foreground))];
+  font-size: var(--font-size-xs);
+  flex-grow: 1;
+  margin-right: 1rem;
 }
 
 .cookie-link-wrapper {
-  @apply inline;
+  display: inline;
 }
 
 .cookie-link {
-  @apply text-foreground underline decoration-1 underline-offset-2 hover:decoration-2;
+  @apply text-[hsl(var(--foreground))] underline decoration-1 underline-offset-2;
+  &:hover {
+    text-decoration-thickness: 2px;
+  }
   font-size: inherit;
   font-weight: inherit;
 }
 
 .slide-up-enter-active,
 .slide-up-leave-active {
-  @apply transition-all duration-300 ease-in-out;
+  @apply transition-all duration-300;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .slide-up-enter-from,
 .slide-up-leave-to {
   @apply transform translate-y-full;
+}
+
+.cookie-button {
+  font-size: var(--font-size-xs);
 }
 </style>

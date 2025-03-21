@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import tailwindcss from "@tailwindcss/vite";
+
 export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
@@ -8,22 +10,46 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     '@nuxtjs/i18n',
-    '@nuxtjs/tailwindcss',
-    'shadcn-nuxt',
+    // Удаляем @nuxtjs/tailwindcss, так как теперь используем Vite плагин
     '@nuxt/image',
+    '@nuxt/ui',
   ],
   css: ['~/app/styles/tailwind.css'],
-  postcss: {
-    plugins: {
-      'postcss-import': {},
-      tailwindcss: {},
-      autoprefixer: {},
+  // Удаляем конфигурацию PostCSS, так как теперь используем Vite плагин
+  vite: {
+    plugins: [
+      tailwindcss(),
+    ],
+  },
+  ui: {
+    theme: {
+      transitions: true,
     },
   },
-  shadcn: {
-    prefix: '',
-    componentDir: `./${process.env.SRC_DIR}/shared/ui`,
+  
+  // Конфигурация модуля tailwindcss
+  tailwindcss: {
+    // Указываем, что используем @tailwindcss/postcss вместо tailwindcss
+    exposeConfig: true,
+    // Отключаем автоматическую конфигурацию PostCSS
+    configPath: '~/tailwind.config.js',
+    cssPath: '~/app/styles/tailwind.css',
+    // Важно для Tailwind CSS v4
+    viewer: false,
   },
+
+  // Алиасы путей (перенесены из components.json)
+  alias: {
+    '@/entities': '~/entities',
+    '@/shared/lib/utils': '~/shared/lib/utils',
+    '@/shared/ui': '~/shared/ui',
+    '@/shared/lib': '~/shared/lib',
+    '@/features': '~/features',
+    '@/widgets': '~/widgets',
+    '@/pages': '~/pages',
+    '@/app': '~/app',
+  },
+
   i18n: {
     vueI18n: `../${process.env.SRC_DIR}/app/i18n/i18n.config.ts`,
     lazy: true,

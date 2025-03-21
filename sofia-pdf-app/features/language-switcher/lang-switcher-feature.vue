@@ -2,7 +2,11 @@
 /**
  ** Переключения языка (русский/английский)
  */
-import { LocalStorageKeys, getFromStorage, saveToStorage } from '~/shared/lib/local-storage-lib'
+import {
+  LocalStorageKeys,
+  getFromStorage,
+  saveToStorage,
+} from '~/shared/lib/local-storage-lib'
 
 const { t, locale } = useI18n()
 
@@ -28,18 +32,60 @@ const toggleLocale = () => {
         : t('components.langSwitcher.ru')
     "
   >
-    <span class="lang-text">{{
-      locale.toUpperCase()
-    }}</span>
+    <span class="lang-text">{{ locale.toUpperCase() }}</span>
   </button>
 </template>
 
 <style scoped>
 .lang-button {
-  @apply flex items-center justify-center px-2 py-1 sm:px-3 sm:py-2 rounded-md hover:bg-accent transition-colors min-w-[48px] sm:min-w-[64px];
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-lg);
+  padding: var(--button-inline-padding);
+  background-color: hsl(var(--bg-light));
+  color: hsl(var(--text-on-light));
+  font-weight: 500;
+  border: 1px solid hsl(var(--button-primary-bg));
+  transition: all var(--transition-standard);
+
+  @media (min-width: var(--screen-sm)) {
+    padding: 0.5rem 2rem;
+  }
+
+  &:hover {
+    background-color: hsl(var(--btn-hover));
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  &:active {
+    background-color: hsl(var(--button-primary-hover-bg));
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    transform: translateY(1px);
+  }
+
+  :root.dark & {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: hsl(var(--text-on-dark));
+    border-color: rgba(255, 255, 255, 0.2);
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: hsl(var(--text-on-dark));
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+  }
 }
 
 .lang-text {
-  @apply text-base font-medium;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: var(--font-size-xl);
+  color: hsl(var(--link-color));
+
+  @media (min-width: 640px) {
+    font-size: var(--font-size-sm);
+  }
 }
 </style>

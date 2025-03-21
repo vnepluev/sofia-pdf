@@ -17,6 +17,36 @@
       "edit": "Edit",
       "legalInfo": "Legal information",
       "boatImageAlt": "Boat image"
+    },
+    "orderProcess": {
+      "sliderImageAlt": "Order process image",
+      "whoAreYou": {
+        "title": "Create a new certificate",
+        "subtitle": "Hello! We will go through a few small steps",
+        "form": {
+          "name": "Name",
+          "phone": "Phone",
+          "email": "E-mail",
+          "otherMethods": "Other methods of communication (optional)",
+          "consent": "I consent to the collection and processing of personal data",
+          "back": "Back",
+          "nextStep": "Next step",
+          "required": "Required field",
+          "invalidEmail": "Invalid email format",
+          "invalidPhone": "Invalid phone format"
+        }
+      }
+    }
+  },
+  "layouts": {
+    "newOrder": {
+      "menuTitle": "Menu",
+      "profile": "Profile",
+      "theme": "Theme",
+      "language": "Language",
+      "logout": "Log out",
+      "openMenu": "Menu",
+      "closeMenu": "Close menu"
     }
   },
   "components": {

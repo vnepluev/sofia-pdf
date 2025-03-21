@@ -20,7 +20,9 @@ const {
     :disabled="disabled"
     :class="[
       'v-button',
-      variant === 'primary' ? 'v-button-primary' : 'v-button-secondary',
+      variant === 'primary'
+        ? 'v-button-primary'
+        : 'v-button-secondary',
       disabled && 'v-button-disabled',
     ]"
   >
@@ -34,23 +36,42 @@ const {
 </template>
 
 <style scoped>
+@reference "@/app/styles/theme.css";
+
 .v-button {
-  @apply flex items-center justify-center rounded-md px-6 py-2 text-base font-medium;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+  border-radius: var(--button-border-radius);
+  border: var(--button-border-size) solid
+    hsl(var(--button-primary-border));
   transition: all var(--button-animation-duration);
+
+  @media (max-width: 640px) {
+    font-size: var(--font-size-lg);
+    padding: 2rem 4rem;
+  }
 }
 
 .v-button:hover {
   transform: scale(var(--button-animation-scale));
-  @apply shadow-md;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .v-button-primary {
-  background-color: var(--button-primary-bg);
-  color: var(--button-primary-text);
+  background-color: hsl(var(--button-primary-bg));
+  color: hsl(var(--button-primary-text));
 }
 
 .v-button-primary:hover {
-  background-color: var(--button-primary-hover-bg);
+  background-color: hsl(var(--button-primary-hover-bg));
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .v-button-primary:focus {
@@ -58,14 +79,23 @@ const {
   --tw-ring-color: var(--button-focus-ring);
 }
 
+.v-button-primary:active {
+  transform: translateY(1px);
+  background-color: hsl(var(--button-primary-hover-bg));
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
 .v-button-secondary {
-  border: 1px solid var(--button-secondary-border);
-  color: var(--button-secondary-text);
+  border: var(--button-border-size) solid
+    hsl(var(--button-secondary-border));
+  color: hsl(var(--button-secondary-text));
+  background-color: hsl(var(--button-secondary-bg));
+  border-radius: var(--button-border-radius);
 }
 
 .v-button-secondary:hover {
-  background-color: var(--button-secondary-hover-bg);
-  color: var(--button-secondary-hover-text);
+  background-color: hsl(var(--button-secondary-hover-bg));
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .v-button-secondary:focus {
@@ -73,11 +103,19 @@ const {
   --tw-ring-color: var(--button-focus-ring);
 }
 
+.v-button-secondary:active {
+  transform: translateY(1px);
+  background-color: hsl(var(--button-secondary-hover-bg));
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
 .v-button-disabled {
   @apply cursor-not-allowed opacity-50;
 }
 
 .v-button-icon {
-  @apply mr-2 h-5 w-5;
+  height: 1.25rem;
+  width: 1.25rem;
+  margin-right: 0.5rem;
 }
 </style>

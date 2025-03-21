@@ -1,0 +1,3 @@
+/* Файл для использования с директивой @reference */
+@import "tailwindcss/preflight";
+@tailwind utilities;

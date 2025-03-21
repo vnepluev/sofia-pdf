@@ -61,16 +61,24 @@ onMounted(() => {
 </template>
 
 <style scoped>
+@reference "../../../app/styles/theme.css";
+
 .cookie-notification {
-  @apply fixed bottom-0 left-0 right-0 flex items-center gap-4 p-4 bg-card shadow-lg z-50;
+  @apply fixed bottom-0 left-0 right-0 flex items-center z-50;
+  background-color: hsl(var(--card));
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  gap: 1rem;
 }
 
 .cookie-icon {
-  @apply text-primary flex-shrink-0;
+  flex-shrink: 0;
+  color: hsl(var(--primary));
 }
 
 .cookie-content {
-  @apply flex-grow text-foreground;
+  @apply text-[hsl(var(--foreground))];
+  flex-grow: 1;
 }
 
 .slide-up-enter-active,
@@ -88,7 +96,10 @@ onMounted(() => {
 }
 
 .cookie-link {
-  @apply text-foreground underline decoration-1 underline-offset-2 hover:decoration-2;
+  @apply text-[hsl(var(--foreground))] underline decoration-1 underline-offset-2;
+  &:hover {
+    text-decoration-thickness: 2px;
+  }
   font-size: inherit;
   font-weight: inherit;
 }

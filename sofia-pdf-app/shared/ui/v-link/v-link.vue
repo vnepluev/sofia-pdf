@@ -17,36 +17,30 @@ const {
     :href="external ? to : undefined"
     :target="external ? '_blank' : undefined"
     :rel="external ? 'noopener noreferrer' : undefined"
-    :class="[
-      'v-link',
-      `v-link-${variant}`
-    ]"
+    :class="['v-link', `v-link-${variant}`]"
   >
     <slot />
   </component>
 </template>
 
 <style scoped>
+@reference "@/app/styles/theme.css";
+
 .v-link {
-  @apply inline-flex items-center text-base font-medium transition-all duration-300 hover:underline cursor-pointer;
+  @apply inline-flex items-center transition-all duration-300 cursor-pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+  font-weight: 500;
+  font-size: 1.4rem;
   transform: scale(1);
 }
 
 .v-link-primary {
-  color: var(--button-primary-bg);
+  color: hsl(var(--link-color));
 }
 
 .v-link-primary:hover {
-  color: var(--button-primary-hover-bg);
-  transform: scale(var(--button-animation-scale));
-}
-
-.v-link-white {
-  @apply text-white;
-}
-
-.v-link-white:hover {
-  @apply text-gray-200;
   transform: scale(var(--button-animation-scale));
 }
 </style>

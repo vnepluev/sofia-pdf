@@ -4,9 +4,9 @@
 </script>
 
 <template>
-  <div class="min-h-screen bg-background text-foreground transition-colors duration-300">
+  <div class="min-h-screen bg-[hsl(var(--background))] text-[hsl(var(--foreground))] transition-colors duration-300">
     <header class="container mx-auto p-4 flex justify-between items-center">
-      <h1 class="text-xl font-bold text-primary">Sofia PDF</h1>
+      <h1 class="text-xl" style="color: hsl(var(--primary)); font-weight: 700;">Sofia PDF</h1>
       <ThemeSwitcher />
     </header>
     <main class="container mx-auto p-4">

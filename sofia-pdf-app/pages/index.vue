@@ -4,6 +4,8 @@
  *
  * TODO оптимизировать фоновую картинку
  */
+import { CardBlock } from '~/shared/ui/card-block'
+import { TitleWithSubtitle } from '~/shared/ui/title-with-subtitle'
 
 const { t } = useI18n()
 
@@ -26,10 +28,14 @@ useSeoMeta({
       <!-- Экран планшета с фоновым изображением -->
       <div class="tablet-screen">
         <div class="screen-content">
-          <title-block is-background>
-            <template #default>{{ t('pages.404.title') }}</template>
-            <template #subtitle>{{ t('pages.404.description') }}</template>
-          </title-block>
+          <CardBlock>
+            <TitleWithSubtitle>
+              <template #title>{{ t('pages.404.title') }}</template>
+              <template #subtitle>{{
+                t('pages.404.description')
+              }}</template>
+            </TitleWithSubtitle>
+          </CardBlock>
         </div>
       </div>
     </div>
@@ -38,15 +44,16 @@ useSeoMeta({
 
 <style scoped>
 .page-container {
-  @apply flex items-center justify-center min-h-screen p-4 bg-background;
+  @apply flex items-center justify-center min-h-screen bg-[hsl(var(--background))];
+  padding: 1rem;
 }
 
 /* Стилизация планшета */
 .tablet-frame {
   position: relative;
   background-color: #333;
-  width: 90%;
-  max-width: 50rem;
+  width: 100%;
+  max-width: 80rem;
   aspect-ratio: 4/3;
   padding: 1rem;
   box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.25);
@@ -118,7 +125,6 @@ useSeoMeta({
 @media (max-width: 768px) {
   .tablet-frame {
     aspect-ratio: 3/4; /* Вертикальная ориентация */
-    max-width: 30rem;
   }
 
   /* Перемещаем кнопки в вертикальном режиме */

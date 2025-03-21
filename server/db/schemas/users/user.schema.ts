@@ -10,19 +10,26 @@ export const usersTable = sqliteTable('users', {
   communication: text('communication'), // Способы связи json
   roleId: integer('role_id'), // Ссылка на роль
   groupId: integer('group_id'), // Ссылка на группу
-  
+  manager: text('manager'), // Является менеджером, если поле заполнено. Оно же является именем менеджера /группа/менеджер
+
   firstManagerId: integer('first_manager_id'), // Первый менеджер
   lastManagerId: integer('last_manager_id'), // Последний менеджер
-  
+
   oauthProviderName: text('oauth_provider_name'), // провайдер, н-р: yandex
   oauthUserId: integer('oauth_user_id'), // id пользователя у провайдера
   oauthTokenAccess: text('oauth_token_access'),
   oauthTokenRefresh: text('oauth_token_refresh'),
-  oauthTokenExpiresAt: integer('oauth_token_expires_at', { mode: 'timestamp' }), // Время истечения Access Token
+  oauthTokenExpiresAt: integer('oauth_token_expires_at', {
+    mode: 'timestamp',
+  }), // Время истечения Access Token
   oauthAvatarUrl: text('oauth_avatar_url'), // url аватара
-  
-  createdAt: integer('created_at', { mode: 'timestamp' }).notNull().$defaultFn(() => new Date()),
-  updatedAt: integer('updated_at', { mode: 'timestamp' }).notNull().$defaultFn(() => new Date()),
+
+  createdAt: integer('created_at', { mode: 'timestamp' })
+    .notNull()
+    .$defaultFn(() => new Date()),
+  updatedAt: integer('updated_at', { mode: 'timestamp' })
+    .notNull()
+    .$defaultFn(() => new Date()),
 })
 
 // Экспорт типов для таблицы

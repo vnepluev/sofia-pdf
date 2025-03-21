@@ -1,18 +1,28 @@
 /* Импорт файлов тем */
 @import './themes/index.css';
 
-@tailwind base;
-@tailwind components;
 @tailwind utilities;
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: var(--border);
   }
+
   html {
-    font-size: var(--font-size-base);
+    @media (max-width: 1920px) {
+      font-size: calc(100vw / 1920 * 14);
+    }
+    @media (max-width: 1280px) {
+      font-size: calc(100vw / 1280 * 10);
+    }
+    @media (max-width: 1024px) {
+      font-size: calc(100vw / 1024 * 10);
+    }
   }
+
   body {
-    @apply bg-background text-foreground;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-family);
   }
 }

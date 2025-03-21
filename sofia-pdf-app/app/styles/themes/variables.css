@@ -3,28 +3,71 @@
  */
 
 :root {
-  /* Резиновый размер шрифта с использованием clamp() */
-  --font-size-base: clamp(12px, 0.5vw + 10px, 18px);
+  /* ======== ТИПОГРАФИКА ======== */
+  --font-family:
+    'Poppins', 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, sans-serif;
+  --font-size-base: clamp(14px, 0.5vw + 12px, 20px);
+  --font-size-xs: 1.6rem; /* для незначительного размера */
+  --font-size-sm: 2rem;
+  --font-size-lg: 4rem;
+  --font-size-xl: 6rem;
+  --line-height-base: 1.2;
+  --line-height-lg: 1.4;
 
-  /* Радиус скругления */
-  --radius: 0.5rem;
+  --base-margin-bottom: 6.4rem; /* базовый отступ от элементов */
 
-  /* Анимации и переходы */
-  --transition-standard: 0.3s ease-in-out;
-  
-  /* Цвета текста для разных фонов */
-  --text-color-light: 180 10% 10%;
-  --text-color-dark: 0 0% 98%;
+  /* ======== ЦВЕТА ДЛЯ ТЕКСТА ======== */
+  --text-on-light: 180 10% 10%; /* Цвет текста на светлом фоне */
+  --text-on-dark: 0 0% 98%; /* Цвет текста на темном фоне */
 
-  /* Переменные для кнопок */
-  --button-primary-bg: theme('colors.teal.700');
-  --button-primary-hover-bg: theme('colors.teal.600');
-  --button-primary-text: theme('colors.white');
-  --button-secondary-border: theme('colors.teal.700');
-  --button-secondary-text: theme('colors.teal.700');
-  --button-secondary-hover-text: theme('colors.teal.600');
-  --button-secondary-hover-bg: theme('colors.teal.50');
-  --button-focus-ring: theme('colors.teal.500');
-  --button-animation-scale: 1.05;
-  --button-animation-duration: 300ms;
+  /* ======== СКРУГЛЕНИЯ ======== */
+  --radius: 0.5rem; /* Стандартное скругление (для обратной совместимости) */
+  --radius-sm: 0.25rem; /* Маленькое скругление (4px) */
+  --radius-md: 0.5rem; /* Среднее скругление (8px) */
+  --radius-lg: 0.75rem; /* Большое скругление (12px) */
+  --radius-xl: 1rem; /* Очень большое скругление (16px) */
+  --radius-full: 9999px; /* Полное скругление (для круглых элементов) */
+
+  /* ======== АНИМАЦИИ И ПЕРЕХОДЫ ======== */
+  --transition-fast: 0.15s ease-in-out; /* Быстрый переход */
+  --transition-standard: 0.3s ease-in-out; /* Стандартный переход */
+  --transition-slow: 0.5s ease-in-out; /* Медленный переход */
+
+  /* ======== ТЕНИ ======== */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* Маленькая тень */
+  --shadow-md:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Средняя тень */
+  --shadow-lg:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Большая тень */
+
+  /* ======== ЭЛЕМЕНТЫ ВВОДА ======== */
+  --input-focus-ring-width: 2px; /* Ширина обводки при фокусе */
+  --input-focus-ring-offset: 2px; /* Отступ обводки при фокусе */
+  --input-disabled-opacity: 0.5; /* Прозрачность для отключенных элементов */
+
+  /* ======== КНОПКИ ======== */
+  --button-border-radius: var(--radius-xl);
+  --button-border-size: 1px;
+  --button-inline-padding: 0.25rem 1.75rem;
+  --button-animation-scale: 1.05; /* Масштаб анимации при наведении */
+  --button-animation-duration: 300ms; /* Длительность анимации */
+
+  /* ======== СЛАЙДЕР ======== */
+  --slider-inactive-bullet: #e5e7eb; /* Цвет неактивной точки слайдера */
+
+  /* ======== Z-ИНДЕКСЫ ======== */
+  --z-index-dropdown: 10; /* Выпадающие меню */
+  --z-index-modal: 50; /* Модальные окна */
+  --z-index-tooltip: 40; /* Всплывающие подсказки */
+  --z-index-overlay: 30; /* Оверлеи */
+
+  /* ======== МЕДИА-ЗАПРОСЫ (БРЕЙКПОИНТЫ) ======== */
+  --screen-sm: 640px; /* Маленькие экраны (смартфоны) */
+  --screen-md: 768px; /* Средние экраны (планшеты) */
+  --screen-lg: 1024px; /* Большие экраны (ноутбуки) */
+  --screen-xl: 1280px; /* Очень большие экраны (десктопы) */
+  --screen-2xl: 1536px; /* Экстра большие экраны */
 }

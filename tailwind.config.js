@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+import animate from 'tailwindcss-animate';
+
 export default {
   darkMode: ['class'],
   content: ['./sofia-pdf-app/**/*.{js,ts,jsx,tsx,vue}', './components/**/*.{js,ts,jsx,tsx,vue}'],
@@ -47,16 +49,40 @@ export default {
     },
     extend: {
       borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)',
+        lg: 'var(--radius-lg)',
+        md: 'var(--radius-md)',
+        sm: 'var(--radius-sm)',
+        xl: 'var(--radius-xl)',
+        full: 'var(--radius-full)',
       },
       colors: {
-        background: 'hsl(var(--bg-color))',
-        'background-light': 'hsl(var(--bg-light))',
-        foreground: 'hsl(var(--fg-color))',
-        'on-light': 'hsl(var(--text-color-light))',
-        'on-dark': 'hsl(var(--text-color-dark))',
+        white: '#ffffff',
+        teal: {
+          50: '#f0fdfa',
+          100: '#ccfbf1',
+          200: '#99f6e4',
+          300: '#5eead4',
+          400: '#2dd4bf',
+          500: '#14b8a6',
+          600: '#0d9488',
+          700: '#0f766e',
+          800: '#115e59',
+          900: '#134e4a',
+          950: '#042f2e',
+        },
+        // Основные цвета фона и текста
+        background: {
+          DEFAULT: 'hsl(var(--background))',
+          light: 'hsl(var(--bg-light))',
+        },
+        foreground: 'hsl(var(--foreground))',
+        // Текстовые цвета
+        text: {
+          primary: 'hsl(var(--text-primary))',
+          secondary: 'hsl(var(--text-secondary))',
+          muted: 'hsl(var(--text-muted))',
+          accent: 'hsl(var(--text-accent))',
+        },
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
@@ -98,5 +124,5 @@ export default {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [animate],
 }
