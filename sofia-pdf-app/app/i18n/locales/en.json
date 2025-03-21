@@ -8,6 +8,59 @@
       "title": "Oops, page not found",
       "description": "You have found the secret page"
     },
+    "cookie-policy": {
+      "seoTitle": "Cookie policy",
+      "seoDescription": "Cookie policy",
+      "title": "Cookie policy",
+      "subtitle": "Privacy Policy regarding the use of cookies",
+      "owner": "(self-employed Nepluev Valery Vladimirovich)",
+      "intro": "This Privacy Policy explains how this website uses cookies and similar technologies to provide convenience to users, analyze traffic, and improve the website. By using this website, you agree to the use of cookies in accordance with this Privacy Policy.",
+      "section1": {
+        "title": "1. What are cookies?",
+        "content": "Cookies are small text files that are stored on your device (computer, smartphone, or tablet) when you visit websites. They help remember your preferences, analyze your behavior on the site, and provide personalized content."
+      },
+      "section2": {
+        "title": "2. How does this site use cookies?",
+        "content": "This site uses cookies for the following purposes:",
+        "list": [
+          "Functional cookies: ensure the correct operation of the site, remember your settings and preferences.",
+          "Analytical cookies: collect information about how you use the site (for example, which pages you visit, how much time you spend on the site). This data helps improve functionality and content.",
+          "Advertising cookies: used to display relevant advertising based on your interests and behavior on the site."
+        ]
+      },
+      "section3": {
+        "title": "3. Data transfer to third parties",
+        "content": "Data collected through cookies on this site may be transferred to third parties, including:",
+        "list": [
+          "Yandex.Metrica — for analyzing site traffic and user behavior;",
+          "Partners — for targeting advertising and providing personalized offers."
+        ],
+        "additional": "This data is used exclusively to improve service quality and provide relevant advertising."
+      },
+      "section4": {
+        "title": "4. Managing cookies",
+        "content": "You can manage the use of cookies through your browser settings. You can:",
+        "list": [
+          "Disable cookies completely or partially;",
+          "Delete saved cookies;",
+          "Set up notifications about attempts to save cookies."
+        ],
+        "additional": "Please note that disabling cookies may affect the functionality of the site and limit access to some of its features."
+      },
+      "section5": {
+        "title": "5. Contact information",
+        "content": "If you have questions about the use of cookies or the processing of your data, you can contact the site owner:",
+        "owner": "Self-employed Nepluev Valery Vladimirovich",
+        "email": "Email:",
+        "phone": "Phone:"
+      },
+      "section6": {
+        "title": "6. Changes to the Policy",
+        "content": "This Policy may be updated due to changes in legislation or site functionality. It is recommended to periodically check this page to familiarize yourself with the current information.",
+        "lastUpdate": "Last updated: March 21, 2025",
+        "agreement": "By using this site, you confirm your agreement with this Privacy Policy."
+      }
+    },
     "main": {
       "seoTitle": "Gift certificates generator",
       "seoDescription": "Walks on water transport in Kazan",
@@ -37,6 +90,9 @@
         }
       }
     }
+  },
+  "common": {
+    "backToMain": "Back to main"
   },
   "layouts": {
     "newOrder": {

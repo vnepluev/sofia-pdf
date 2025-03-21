@@ -1,5 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import tailwindcss from "@tailwindcss/vite";
+import tailwindcss from '@tailwindcss/vite'
 
 export default defineNuxtConfig({
   future: {
@@ -17,16 +17,14 @@ export default defineNuxtConfig({
   css: ['~/app/styles/tailwind.css'],
   // Удаляем конфигурацию PostCSS, так как теперь используем Vite плагин
   vite: {
-    plugins: [
-      tailwindcss(),
-    ],
+    plugins: [tailwindcss()],
   },
   ui: {
     theme: {
       transitions: true,
     },
   },
-  
+
   // Конфигурация модуля tailwindcss
   tailwindcss: {
     // Указываем, что используем @tailwindcss/postcss вместо tailwindcss
@@ -69,6 +67,8 @@ export default defineNuxtConfig({
     // Клиентские переменные
     public: {
       environment: process.env.NODE_ENV,
+      ownerPhone: process.env.OWNER_PHONE,
+      ownerEmail: process.env.OWNER_EMAIL,
     },
   },
 })
