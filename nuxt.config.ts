@@ -50,6 +50,9 @@ export default defineNuxtConfig({
 
   i18n: {
     vueI18n: `../${process.env.SRC_DIR}/app/i18n/i18n.config.ts`,
+    bundle: {
+      optimizeTranslationDirective: false,
+    },
     lazy: true,
     defaultLocale: 'ru',
     strategy: 'prefix',
